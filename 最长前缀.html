@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var longestCommonPrefix = function(strs) {
+	    'use strict';
+	    if (strs === undefined || strs.length === 0) { return ''; }
+	    
+	    return strs.reduce((prev, currentVal) => {
+	        let i = 0;
+	        while (prev[i] && currentVal[i] && prev[i] === currentVal[i]) i++;
+	        return prev.slice(0, i);
+	    });
+	};
+	console.log(longestCommonPrefix(["zx","zxxx"]));
+	</script>
+</body>
+</html>

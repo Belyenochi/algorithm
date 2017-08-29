@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/**
+	 * @param {number} x
+	 * @return {boolean}
+	 */
+	var isPalindrome = function(x) {
+		if (x >= 0) {
+			let strx = x.toString().split("");
+		    let strx2 = strx.slice().reverse();
+		    return strx.join("") === strx2.join("")
+		}
+	    return false;
+	};
+	isPalindrome(10);
+	</script>
+</body>
+</html>
