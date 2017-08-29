@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * @param {number} x
+		 * @return {number}
+		 */
+		var reverse = function(x) {
+			if (x > 0) {
+				var s = parseInt(x.toString().split("").reverse().join(""),10);
+				return s > Math.pow(2,31) - 1 ? 0 : s;
+			}else if (x == 0) {
+				return 0;
+			}if (x < 0)  {
+				var sp = x.toString().split("").reverse()
+				sp.pop();
+				var sps = parseInt(["-"].concat(sp).join(""),10)
+				return sps < -Math.pow(2,31)?0:sps;
+			}
+		    
+		};
+		console.log(reverse(123));
+		console.log(reverse(-123));
+	</script>
+</body>
+</html>

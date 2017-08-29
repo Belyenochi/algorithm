@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * @param {string} s
+		 * @return {string}
+		 */
+		/*var longestPalindrome = function(s) {
+			var result = '';
+			var result2 = '';
+			var offset;
+			if (s.length != 1) {
+				for (let i = 0; i < s.length; i++) {
+					offset = s.slice(i+1).indexOf(s[i]);
+			    	let end = offset + i + 1;
+			    	let tag2 = true;
+			    	let tag = true
+			    	if (s.slice(i+1).indexOf(s[i]) != -1) {
+						var count = 0;
+						for (let k = 0; k < s.slice(end).length; offset ? k+=offset : k++) {
+							if (s.slice(end)[k] == s.slice(end)[k+offset+1] && s.slice(end)[k+offset+1]) {
+								if (tag2) {
+									count += offset + 1;
+								}
+							}else{
+								tag2 = false;
+							}
+						}
+						
+			    		let newStr = s.slice(i, end+1+count);
+			    		result2 = '';
+			    		for (let j = 0; j < (newStr.length-1)/2; j++) {
+			    			if (newStr[j] != newStr[newStr.length-j-1]) {
+			    				tag = false;
+			    				break;
+			    			}else{
+			    				result2 += newStr[j]; 
+			    			}
+			    		}
+			    		if (tag) {
+			    			if (result) {
+			    				result = (result.length > newStr.length)?result:newStr
+			    			}else{
+			    				result = newStr;
+			    			}
+			    		}else{
+							result = result.length > result2.length ? result :result2;
+			    		}
+			    	
+				    }
+			  } 
+			}else{
+				result = s;
+			}
+			return result;	
+			};*/
+			/**
+	 * @param {string} s
+	 * @return {string}
+	 */
+	/*var longestPalindrome = function(s) {
+	  var head,
+	  	tail,
+	    i,
+	    len = s.length,
+	    count,
+	    maxCount = 0,
+	    offset,
+	    result = [-1, -1];
+	  
+	  for (i = 0; i < len; i++) {
+	    head = i;
+	    while (i < len - 1 && s.charAt(i) === s.charAt(i+1)) {
+	      i++;
+	    }
+	    tail = i;
+	    count = tail - head + 1;
+	    
+	    for (offset = 1; offset <= Math.min(head, len - tail - 1); offset++) {
+	      if (s.charAt(head - offset) === s.charAt(tail + offset)) {
+	        count += 2;
+	      } else {
+	        break;
+	      }
+	    } 
+	    if (count > maxCount) {
+	      result[0] = head - offset + 1;
+	      result[1] = tail + offset - 1;
+	      maxCount = count;
+	      //$('#log').append('<p>' + result + '</p>');
+	      //$('#log').append('<p>' + maxCount + '</p>');
+	    }
+	  }
+	  
+	  return s.substring(result[0], result[1] + 1);
+	};*/
+
+
+	var longestPalindrome = function(s) {
+		var newStr='';
+		var result2='';
+		var result='';
+		var tag;
+		for (let i = 0; i < s.length; i++) {
+			for (let j = s.length; j > i; j--) {
+				newStr = s.slice(i, j+1);
+				tag = true;
+				result2 = '';
+				for (let k = 0; k < (newStr.length-1)/2; k++) {
+	    			if (newStr[k] != newStr[newStr.length-k-1]) {
+	    				tag = false;
+	    				break;
+	    			}else{
+	    				result2 += newStr[k]; 
+	    			}
+			    }
+			    if (tag) {
+			    	if (result) {
+	    				result = (result.length > newStr.length)?result:newStr
+	    			}else{
+	    				result = newStr;
+	    			}
+			    }else{
+			    	result2 = result2.slice(0,1)
+			    	result = result.length > result2.length ? result : result2;
+			    }
+			}
+		}
+		return result;
+
+	}
+		console.log(longestPalindrome("abcdasdfghjkldcba"));
+	</script>
+</body>
+</html>

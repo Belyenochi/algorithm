@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var lengthOfLongestSubstring = function(s) {
+			let result = '';
+			let tempResult = '';
+			for(let i=0; i<s.length; i++){
+				if(tempResult.indexOf(s[i]) == -1) {
+					tempResult += s[i];
+					if(tempResult.length > result.length) {
+						result = tempResult;
+					}
+				} else {
+					let index = tempResult.indexOf(s[i]);
+					tempResult = tempResult.slice(index+1) + s[i];
+					if(tempResult.length > result.length) {
+						result = tempResult;
+					}
+				}
+			}
+			return result.length;
+		};
+
+		
+	</script>
+</body>
+</html>

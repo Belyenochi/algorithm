@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// var twoSum = function(nums, target) {
+		// 	var arr = [];
+    		
+  //   		nums.map(function(index, elem) {
+  //   			var tarIndex = nums.slice(elem+1).indexOf(target-index);
+  //   			if(tarIndex != -1){
+  //   				arr.push(elem);
+  //   				arr.push(tarIndex+elem+1)
+  //   			}
+  //   		})
+  //   		return arr;
+		// };
+		function twoSum(nums, target) {
+		    var ans = [];
+		    var map = {};
+		    for (var i = 0; i < nums.length; i++) {
+		        if (map[target - nums[i]] !== undefined) {
+		            ans[0] = parseInt(map[target - nums[i]]) ;
+		            ans[1] = i;
+		            return ans;
+		        } 
+		        map[nums[i]] = i;
+			}
+		}
+		twoSum([3,3],6);
+	</script>
+</body>
+</html>

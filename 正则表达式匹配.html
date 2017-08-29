@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/**
+		 * @param {string} s
+		 * @param {string} p
+		 * @return {boolean}
+		 */
+		/*var isMatch = function(s, p) {
+		    if (p.indexOf(".") == -1 && p.indexOf("*") == -1) {
+		    	return s === p;
+		    }else if (p.indexOf(".") == -1) {
+		    	let t = p.indexOf("*");
+		    	return s.slice(0,t).toString() === p.slice(0,t).toString();
+		    }else if (p.indexOf("*") == -1) {
+		    	let t = [];
+				let ts;
+		    	let pp = p.split("");
+		    	for (let i = 0; i < pp.length; i++) {
+		    		if (pp[i] == ".") {
+		    			t.push(i);
+		    		}
+		    	}
+		    	let tt = p.split(".").toString();
+
+		    	for (let i = 0; i < t.length; i++) {
+		    		let j = 0;
+		    		ts += s.slice(j,t[i]);
+		    		j = t[i] + 1;
+		    		if (i == t.length - 1) {
+		    			ts += s.slice(j);
+		    		}
+		    	}
+
+		    	return ts.toString() === t.toString();
+		    }else{
+
+		    }
+		};*/
+		var isMatch = function(s, p) {
+			if (p.indexOf(".") == -1 && p.indexOf("*") == -1) {
+				return s === p;
+			}else{
+				let patt = new RegExp(p);
+				let sr = s.search(patt);
+				return sr === s;
+			}
+		}
+		console.log(isMatch("aa","a"));
+		console.log(isMatch("aa","aa"));
+		console.log(isMatch("aaa","aa"));
+		console.log(isMatch("aa", "a*"));
+		console.log(isMatch("aa", ".*"));
+		console.log(isMatch("ab", ".*"));
+	</script>
+</body>
+</html>
