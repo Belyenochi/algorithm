@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var removeElement = function(nums, val) {
+	    for(var i = 0; i < nums.length; i++ ){
+	        if(val === nums[i]) {
+	            nums.splice(i,1);
+	            i--;
+	        }
+	    }
+	    return nums.length;
+		};
+
+		console.log(removeElement([3,2,2,3], 3));
+	</script>
+</body>
+</html>
