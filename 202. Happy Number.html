@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var isHappy = function(n) {
+    		var set = new Set();
+		    set.add(n);
+	        while (n != 1) {
+	            var result = 0;
+	            while (n != 0) {
+	                result += Math.pow(n % 10, 2);
+	                n = parseInt(n / 10);
+	            }
+	            if (set.has(result)) {
+	                return false;
+	            }
+	            set.add(result);
+	            n = result;
+	        }
+	        return true;
+
+
+		}(2);
+	</script>
+</body>
+</html>
